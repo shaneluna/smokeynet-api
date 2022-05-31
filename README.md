@@ -27,5 +27,9 @@
 6. Install requirements:<br>
    `pip install -r requirements.txt`
 
-7. Start api:<br>
+7. Start API:<br>
    `make start`
+
+8. API should should be accessible by default at:<br>
+`http://127.0.0.1:8000/`<br>
+`http://127.0.0.1:8000/docs`
