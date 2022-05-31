@@ -33,7 +33,7 @@ update `main.py` ENV to `PROD` and set os env variable `SYNOPTIC_TOKEN`.
 
 8. Start API:<br>
    `make start`<br>
-   OR
+   OR<br>
    `uvicorn main:app --reload --host=0.0.0.0 --port=8000` and update host/port as needed
 
 9. API should should be accessible by default at:<br>
