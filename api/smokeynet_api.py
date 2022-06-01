@@ -33,7 +33,7 @@ class SmokeyNetAPI():
 
         # 1. get mapping for nearest weather stations
         print(camera_id)
-        mappings_df = self.camera_station_mapping_df[self.camera_station_mapping_df["properties.description.id"] == camera_id]
+        mappings_df = self.camera_station_mapping_df[self.camera_station_mapping_df["camera_id"] == camera_id]
         # invalid camera id or no stations mapped
         if mappings_df.shape[0] == 0:
             return {}
