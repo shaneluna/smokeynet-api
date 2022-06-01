@@ -2,20 +2,8 @@ from fastapi import FastAPI, Path
 from api.smokeynet_api import SmokeyNetAPI
 from enum import IntEnum
 
-class Environment(IntEnum):
-    DEV = 1
-    PROD = 3
-
-#####################
-ENV = Environment.DEV
-#####################
-
 app = FastAPI()
-
-if ENV == Environment.PROD:
-    smokeynet_api = SmokeyNetAPI()
-else:
-    smokeynet_api = SmokeyNetAPI("./config.yaml")
+smokeynet_api = SmokeyNetAPI()
 
 @app.get("/")
 def root():
