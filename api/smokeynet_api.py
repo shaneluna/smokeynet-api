@@ -1,9 +1,8 @@
-import json
-import yaml
 import os
 import numpy as np
 import pandas as pd
 import requests
+import sys
 
 class SmokeyNetAPI():
 
@@ -11,12 +10,9 @@ class SmokeyNetAPI():
     WEATHER_NETWORKS = "139,81,231" # SDGE, HPWREN, SC-EDISON
     
     def __init__(self, *args):
-        if len(args) > 0: # config.yaml
-            with open(args[0], "r") as yamlfile:
-                config = yaml.safe_load(yamlfile)
-            self.synoptic_api_token = config["synoptic_mesonet"]["token"]
-        else:
-            self.synoptic_api_token = os.environ['SYNOPTIC_TOKEN']
+        self.synoptic_api_token = os.environ['SYNOPTIC_TOKEN']
+        if self.synoptic_api_token is None:
+            sys.exit('SYNOPTIC_TOKEN must be set as an environment variable')
         
         self.camera_station_mapping_df = pd.read_csv("api/camera_station_mappings.csv")
         self.max_distance = self.camera_station_mapping_df["distance_mi"].max()
