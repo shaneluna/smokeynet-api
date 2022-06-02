@@ -10,5 +10,5 @@ def root():
     return {"Hello": "Mundo"}
 
 @app.get("/camera/weatherdata/{camera_id}")
-def get_camera_weatherdata(camera_id: str = Path(None, description="The camera station id to get weather data for (i.e. hpwren1_north).")):
+def get_camera_weatherdata(camera_id: str = Path(None, description="The camera station id to get weather data for (i.e. bm-n-mobo-c).")):
     return {"data": smokeynet_api.get_camera_weatherdata(camera_id)}
