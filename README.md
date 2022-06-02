@@ -44,7 +44,8 @@
 8. Start API for development:
    ```
    make dev
-
+   ```
+   ```
    # the following commands can also be used
    export SYNOPTIC_TOKEN=token
    uvicorn main:app --reload --host=0.0.0.0 --port=8000
