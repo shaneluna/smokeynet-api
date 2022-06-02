@@ -12,7 +12,7 @@ class SmokeyNetAPI():
     def __init__(self, *args):
         self.synoptic_api_token = os.environ['SYNOPTIC_TOKEN']
         if self.synoptic_api_token is None:
-            sys.exit('SYNOPTIC_TOKEN must be set as an environment variable')
+            sys.exit("SYNOPTIC_TOKEN must be set as an environment variable")
         
         self.camera_station_mapping_df = pd.read_csv("api/camera_station_mappings.csv")
         self.max_distance = self.camera_station_mapping_df["distance_mi"].max()
@@ -28,7 +28,7 @@ class SmokeyNetAPI():
         # return: weighted averaged of the weather station data available
 
         # 1. get mapping for nearest weather stations
-        print(camera_id)
+        # print(camera_id)
         mappings_df = self.camera_station_mapping_df[self.camera_station_mapping_df["camera_id"] == camera_id]
         # invalid camera id or no stations mapped
         if mappings_df.shape[0] == 0:
