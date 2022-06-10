@@ -4,7 +4,7 @@ SHELL = /bin/sh
 .PHONY: dev
 dev:
 	@echo "Starting uvicorn main:app..."
-	. .env && \
+	@. .env && \
 	export SYNOPTIC_TOKEN=$$SYNOPTIC_TOKEN && \
 	uvicorn main:app --reload --host=0.0.0.0 --port=8000
 
